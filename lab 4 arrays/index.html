@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const fruits = new Array('Apple', 'Banana');
+        //fonction 3adia
+        function each(tab, f) {
+            for (let i = 0; i < tab.length; i++) {
+                f(tab[i]);
+            }
+        }
+        // callback function
+        each(fruits, function (val) {
+            console.log("with callback val =    ", val);
+        })
+        // with map
+        function withMap(array, f) {
+            for (let i = 0; i < array.length; i++) {
+                array[i] = f(array[i]);
+            }
+            console.log(array);
+            return array;
+        }
+        //map() creates a new array from calling a function for every array element.
+        withMap([1, 2, 3, 4, 5], function (val) {
+            console.log("using map val=  ", val * 2)
+            return val * 2;
+        })
+        //array.map(function(currentValue, index, arr), thisValue)
+        const persons = [
+            { firstname: "Malcom", lastname: "Reynolds" },
+            { firstname: "Kaylee", lastname: "Frye" },
+            { firstname: "Jayne", lastname: "Cobb" }
+        ];
+
+        function getFullName(item){
+            return [item.firstname,item.lastname].join(" ");
+        }
+
+        persons.map(getFullName);
+
+        console.log(persons)
+        console.log(persons.map(getFullName))
+    </script>
+</body>
+
+</html>
